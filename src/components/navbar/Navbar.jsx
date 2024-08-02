@@ -1,21 +1,31 @@
 import { Avatar, Badge, IconButton } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import { pink } from '@mui/material/colors';
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
+import gsap from 'gsap';
 
 function Navbar() {
+
+    useEffect(() => {
+        gsap.to("#box", { x: 50, duration: 1 });  // Corrected the selector
+      }, []);
+    useEffect(() => {
+        gsap.to("#box2", { x: -50, duration: 1 });  // Corrected the selector
+      }, []);
   return (
-    <div className='px-5 z-50 py-[0.8rem] bg-[#e91e63] lg:px-20 flex justify-between'>
+    <div className='px-5 z-50 py-[0.8rem] bg-[#e91e63] lg:px-20 flex justify-between shadow-sm'>
         
             <div className='lg:mr-10 cursor-pointer flex items-center space-x-4'>
-                <li className='logo font-semibold text-gray-300 text-2xl'>
+                <span id='box' className='logo font-semibold text-gray-300 text-2xl'>
                     Foodies
-                </li>
+                </span>
             </div>
+
+            
         
 
-        <div className='flex items-center space-x-2 lg:space-x-10'>
+        <div id='box2' className='flex items-center space-x-2 lg:space-x-10'>
             <div>
                 <IconButton>
                     <SearchIcon sx={{fontSize:"1.5rem"}}/>
